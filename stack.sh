@@ -24,7 +24,7 @@ if [ $ID -ne 0 ]; then
      echo -e " $M you are not the root user and you dont have permissions to run this script $N"
 	 exit 1
 else
-     echo -e "$Byou are the root user $N"
+     echo -e "$B you are the root user $N"
 fi
 
 validate(){
