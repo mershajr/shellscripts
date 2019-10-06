@@ -24,7 +24,7 @@ if [ $ID -ne 0 ]; then
      echo -e " $M you are not the root user and you dont have permissions to run this script $N"
 	 exit 1
 else
-     echo -e " $B you are the root user $N"
+     echo -e "$Byou are the root user $N"
 fi
 
 validate(){
@@ -41,7 +41,7 @@ skip() {
   echo -e "$1 --- $Y skipping $N"
 }
 #echo "Installing the web server"
-
+echo -e "$C Installing the HTTPD $N "
 yum install httpd -y &>>$Log
 
 validate $? "Installing the webserver"
@@ -187,14 +187,17 @@ sh startup.sh &>>Log
 
 validate $? "Restarting the tomcat"
 
+echo -e "$C Installing the mariadb-server $N "
 
-echo -e "$C Installing the mariadb server $N"
 
 yum install mariadb mariadb-server -y &>>Log
 
-echo -e "$C Starting the mariadb server $N "
+validate $? "Installing the databaserver"
 
 systemctl start mariadb &>>Log
+
+validate $? "starting the databaserver"
+
 systemctl enable mariadb &>>Log
 
 cd /opt 
