@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "please enter the username"
+
+read username;
+
+echo username=$username
+
+echo "please enter the password"
+
+read password;
+
+echo password=$password
